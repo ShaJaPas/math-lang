@@ -1,0 +1,36 @@
+Program = _{ SOI ~ Expr ~ EOF }
+
+Expr = { Term ~ (Operation ~ Term)* }
+
+Operation = _{ Add | Subtract | Multiply | Divide | Power | Mod | Div }
+Add = { "+" }
+Subtract = { "-" }
+Multiply = { "*" }
+Divide = { "/" }
+Power = { "^" }
+Mod = { "%" }
+Div = { "\\" }
+
+Int = @{ ASCII_DIGIT+ }
+Float = @{ Int ~ ("." ~ ASCII_DIGIT+) }
+Num = _{ Float | Int }
+
+UnaryMinus = @{ "-" }
+Term = _{ (UnaryMinus | "+")? ~ ( Constant | Num | "(" ~ Expr ~ ")" | Function) ~ Factorial? }
+
+Factorial = @{"!"}
+
+Constant = _{ E | PI }
+E = { ^"e" }
+PI = { ^"pi" }
+
+Function = _{ Cos | Sin | Tg | Ctg | Log }
+Cos = { ^"cos" ~ "(" ~ Expr ~ ")" }
+Sin = { ^"sin" ~ "(" ~ Expr ~ ")" }
+Tg = { ^"tg" ~ "(" ~ Expr ~ ")" }
+Ctg = { ^"ctg" ~ "(" ~ Expr ~ ")" }
+Log = { ^"log" ~ "(" ~ Expr ~ "," ~ Expr ~ ")" }
+
+WHITESPACE =  _{ " " | "\t" | NEWLINE } 
+
+EOF = _{ EOI | ";" }
