@@ -18,7 +18,7 @@ fn main() {
         Ok(mut f) => {
             let mut buf = Vec::new();
             f.read_to_end(&mut buf).unwrap();
-            let mut vm = VM::new(buf);
+            let mut vm = VM::new(&buf);
             let mut ip = 0;
             let instant = Instant::now();
             loop {

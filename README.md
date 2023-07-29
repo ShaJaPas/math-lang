@@ -1,6 +1,6 @@
 ## Overview
 
-These project contains of:
+This project contains of:
 
 * REPL for interpreting math-lang expressions
 * *mathc* compiler, which compiles source code to IL
@@ -26,12 +26,12 @@ cargo build --release --features=cli --bin mathc
 
 ## Example
 
-Image we have these expression:
+Image we have following expression:
 ```rust
 540 - 28 * 14 ^ sin(42) * ctg(11) \ 2 + log(100, 3.5) % 1.2
 ```
 
-Let's evaluate these expression using REPL:
+Let's evaluate this expression using REPL:
 ```
 $ target/release/repl 
 Calculator prompt. Expressions are line evaluated.
@@ -40,7 +40,7 @@ Calculator prompt. Expressions are line evaluated.
 >> 
 ```
 
-Now we will compile these expression to IL code
+Now we will compile this expression to IL code
 ```console
 target/release/mathc -d "540 - 28 * 14 ^ sin(42) * ctg(11) \ 2 + log(100, 3.5) % 1.2" -o IL.mlang
 ```

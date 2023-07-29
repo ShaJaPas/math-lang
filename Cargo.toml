@@ -10,6 +10,17 @@ pest = { version = "2.7.1", features = ["pretty-print"] }
 pest_derive = "2.7.1"
 rustyline = { version = "12.0.0", optional = true }
 
+[dev-dependencies]
+criterion = "0.5.1"
+
+[[bench]]
+name = "vm"
+harness = false
+
+[[bench]]
+name = "interpreter"
+harness = false
+
 [features]
 repl = ["rustyline"]
 cli = ["clap"]

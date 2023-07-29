@@ -16,10 +16,10 @@ pub struct VM {
 }
 
 impl VM {
-    pub fn new(bytecode: Vec<u8>) -> Self {
+    pub fn new(bytecode: &[u8]) -> Self {
         let config = config::standard();
         Self {
-            bytecode: bincode::decode_from_slice(&bytecode, config).unwrap().0,
+            bytecode: bincode::decode_from_slice(bytecode, config).unwrap().0,
             stack: Vec::with_capacity(512),
             ip: 0,
         }
