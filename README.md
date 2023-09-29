@@ -26,7 +26,7 @@ cargo build --release --features=cli --bin mathc
 
 ## Example
 
-Image we have following expression:
+Imagine we have following expression:
 ```rust
 540 - 28 * 14 ^ sin(42) * ctg(11) \ 2 + log(100, 3.5) % 1.2
 ```
